@@ -2,8 +2,8 @@
 import http = require('http');
 import express = require('express');  
 import data = require("./data/index");
-import * as homecontroller from "./controllers/homeController";
-import * as personcontroller from "./controllers/personController";  
+import homecontroller = require("./controllers/homeController");
+import personcontroller = require("./controllers/personController");  
 var app: express.Express = express();
 
 // view

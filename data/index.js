@@ -86,27 +86,27 @@ exports.updatePerson = updatePerson;
 function seedDatabase() {
     database.getDatabase(function (error, database) {
         if (error) {
-            console.log('Failed to get database' + error.message);
+            console.log('Failed to get database: ' + error.message);
         }
         else {
             database.persons.count(function (error, count) {
                 if (error) {
-                    console.log('Failed to retrieve database count' + error.message);
+                    console.log('Failed to retrieve database.persons count: ' + error.message);
                 }
                 else {
                     if (count !== 8) {
                         database.persons.drop(function (error, response) {
                             if (error) {
-                                console.log('Could not drop persons table' + error.message);
+                                console.log('Could not drop persons table: ' + error.message);
                             }
                             else {
-                                console.log('Dropped persons table: response = ' + response);
+                                console.log('(Re)created persons table: response = ' + response);
                             }
                         });
                         seedData.persons().forEach(function (p) {
                             database.persons.insertOne(p, function (error, item) {
                                 if (error) {
-                                    console.log('Failed to insert person into database' + error.message);
+                                    console.log('Failed to insert person into database: ' + error.message);
                                 }
                             });
                         });
