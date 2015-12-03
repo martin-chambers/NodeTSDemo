@@ -1,0 +1,15 @@
+extends layout
+block body
+  // need to make some adjustment to the css as bootstrap / Vash examples as applied in Wildermuth's 
+  // Pluralsight course didn't work correctly here (in Jade?)
+  div(class="row" style="margin: 0px 0px 35px 0px")  
+    div(class="list-group col-lg-6")    
+      each person in persons
+        div(class="list-group-item list-group-item-info" style="padding: 25px 15px")
+          input(type='hidden' name='_id' value='#{_id}')       
+          a(class="token" style="float: left; margin-top: -8px;" href="/persons/#{person._id}" title="Edit") 
+            = person.name
+          a(style="float: right;" href="/delete/#{person._id}" title="Delete")
+            img(src="/images/bluecross.png" height="20" width = "20" style="float: right; margin-top: -8px;")
+  form(method='get')
+    a(class='button', href='/create' ) Add Person

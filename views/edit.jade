@@ -1,0 +1,14 @@
+extends layout
+block body
+	h1= "Edit employee"
+	br
+	div
+		form(method="post")
+			input(name='name',value= name class="form-control")
+			input(name="age",value= age class="form-control")
+			br
+			input(type="submit", value="Update")
+		div
+		br
+		br
+		a(href="/")!= "Return to list"
