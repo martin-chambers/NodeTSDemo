@@ -4,6 +4,7 @@ var express = require('express');
 var data = require("./data/index");
 var homecontroller = require("./controllers/homeController");
 var personcontroller = require("./controllers/personController");
+var bodyParser = require('body-parser');
 var app = express();
 // view
 app.set("view engine", "jade");
@@ -13,8 +14,7 @@ app.use(express.static(__dirname + "/public"));
 var router = express.Router();
 app.use(router);
 // body-parser
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
+//app.use(bodyParser.json());  // not currently required
 app.use(bodyParser.urlencoded({ extended: false }));
 // routes
 app.get('/', function (request, response) {

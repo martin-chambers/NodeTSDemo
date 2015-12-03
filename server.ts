@@ -4,6 +4,8 @@ import express = require('express');
 import data = require("./data/index");
 import homecontroller = require("./controllers/homeController");
 import personcontroller = require("./controllers/personController");  
+import bodyParser = require('body-parser');  
+
 var app: express.Express = express();
 
 // view
@@ -17,8 +19,7 @@ var router: express.Router = express.Router();
 app.use(router);
 
 // body-parser
-var bodyParser = require('body-parser');  
-app.use(bodyParser.json());  
+//app.use(bodyParser.json());  // not currently required
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes

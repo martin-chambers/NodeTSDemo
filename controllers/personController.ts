@@ -2,7 +2,7 @@
 import express = require('express');
 import mongodb = require('mongodb');
 import data = require ("../data/index");
-import * as model from "../model/index";
+import model = require("../model/index");
 
 var x = 'person';
 
